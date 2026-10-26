@@ -1,0 +1,67 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Agentic AI Loan Approval - Demo</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f4f7f6; margin: 0; display: flex; height: 100vh; }
+        .sidebar { width: 300px; background: #fff; border-right: 1px solid #ddd; overflow-y: auto; }
+        .header { padding: 20px; background: #002855; color: white; font-size: 18px; font-weight: bold; }
+        .applicant-card { padding: 15px; border-bottom: 1px solid #eee; cursor: pointer; transition: 0.2s; }
+        .applicant-card:hover { background: #f0f4f8; }
+        .applicant-card h4 { margin: 0 0 5px 0; color: #333; }
+        .applicant-card p { margin: 0; font-size: 13px; color: #666; }
+        .main-content { flex: 1; padding: 40px; overflow-y: auto; }
+        .placeholder { color: #999; text-align: center; margin-top: 20vh; font-size: 20px; }
+        .ai-response { background: #fff; padding: 25px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-left: 5px solid #007bff; line-height: 1.6; color: #333; white-space: pre-wrap; }
+        .loading { color: #007bff; font-weight: bold; animation: blink 1s infinite; }
+        @keyframes blink { 50% { opacity: 0.5; } }
+        .badge { background: #e0e7ff; color: #3730a3; padding: 3px 8px; border-radius: 4px; font-size: 12px; font-weight: bold; margin-top: 10px; display: inline-block; }
+        .ai-response table { width: 100%; border-collapse: collapse; margin-top: 15px; margin-bottom: 15px; }
+        .ai-response th, .ai-response td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        .ai-response th { background-color: #f4f7f6; }
+    </style>
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="header">Retail Lending Workspace</div>
+        <div id="applicant-list"></div>
+    </div>
+
+    <div class="main-content">
+        <h2 style="color: #002855; margin-top: 0;">AI Agent Credit Assessment</h2>
+        <p style="color: #666;">Select an applicant to run the Agentic workflow.</p>
+        <hr style="border: 0; border-top: 1px solid #ddd; margin-bottom: 30px;">
+        
+          <div id="agent-output">
+            <div class="placeholder">👈 Select an applicant from the queue</div>
+        </div>
+    <button id="human-approve-btn" onclick="approveLoan()" style="display:none; margin-top: 30px; padding: 15px 25px; background: #28a745; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; font-weight: bold;">
+            👨‍💼 Officer: Click to Approve & Sanction Loan
+        </button>
+        </div>
+   
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="data.js"></script>
+    <script src="app.js"></script>
+    <script>
+        // Render the applicant list dynamically from data.js
+        const listDiv = document.getElementById('applicant-list');
+        applicants.forEach((app, index) => {
+            const card = document.createElement('div');
+            card.className = 'applicant-card';
+            card.innerHTML = `
+                <h4>${app.name}</h4>
+                <p>Loan: ₹${app.loanAmount.toLocaleString('en-IN')}</p>
+                <span class="badge">${app.id}</span>
+            `;
+            // When clicked, it runs the AI function from app.js
+            card.onclick = () => evaluateApplicant(index);
+            listDiv.appendChild(card);
+        });
+    </script>
+</body>
+</html>
