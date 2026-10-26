@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Our Approach - Agentic AI</title>
+    <style>
+        body { font-family: 'Segoe UI', sans-serif; background: #f4f7f6; padding: 40px; color: #333; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 40px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h1 { color: #002855; border-bottom: 2px solid #002855; padding-bottom: 10px; }
+        .act { margin-bottom: 30px; padding: 20px; background: #eef2f5; border-left: 5px solid #007bff; border-radius: 4px; }
+        .nav { margin-bottom: 20px; }
+        .nav a { text-decoration: none; color: #007bff; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="nav"><a href="index.html">← Back to Live Demo</a></div>
+        <h1>Our Approach: The Two-Act Story</h1>
+        
+        <div class="act">
+            <h2>Act 1: The Lakehouse (Bringing Data Together)</h2>
+            <p>Historically, bank data is trapped in silos. Credit officers manually pull structured data (Core Banking), unstructured data (PDF Salary Slips, KYC), and external data (CIBIL APIs).</p>
+            <p><b>Our Solution:</b> We use a modern Data Lakehouse (like Google BigQuery) to ingest and unify all three data types into a single, real-time view of the customer. This eliminates the manual data-gathering phase entirely.</p>
+        </div>
+
+        <div class="act">
+            <h2>Act 2: The Agentic AI Layer (Reasoning & Action)</h2>
+            <p>Having data is not enough; we need action. Instead of hardcoded rules, we deploy an AI Agent.</p>
+            <p><b>How it works:</b> The Agent reads the applicant's profile from the Lakehouse. It <i>decides</i> which tools to use (e.g., calculating the FOIR), checks the policy constraints, and generates an explainable recommendation (Approve/Reject/Refer).</p>
+            <p><b>Human-in-the-Loop:</b> The AI does the heavy lifting, but the final sanction button is always clicked by a human Credit Officer.</p>
+        </div>
+    </div>
+</body>
+</html>
